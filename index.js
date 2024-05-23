@@ -2,24 +2,32 @@
 // Debug the following functions using console.logs and the VS Code debugger.
 
 function add(a, b) {
-    a += b;
+    // += VS +
+    // missing return statement
+    return a + b;
 }
 
 function multiply(a, b) {
-    return a * c;
+    // b in place of c
+    return a * b;
 }
 
 function divide(a, b) {
-    if (b === "0") {
+    // === VS ==
+    // missing return statement
+    if (b === 0) {
         throw new Error('Division by zero');
     }
-    a / b;
+    return a / b;
 }
 
 function findMax(arr) {
-    let max = 0;
-    let i = 0;
-    while (i <= arr.length) {
+    // 0 is not a good default value as there might be negative numbers in the array
+    // pick the first element in the array as the default value
+    // consequently, start the loop at index 1
+    let max = arr[0];
+    let i = 1;
+    while (i < arr.length) {
         if (arr[i] > max) {
             max = arr[i];
         }
@@ -30,13 +38,15 @@ function findMax(arr) {
 
 
 function calculateAverage(arr) {
+    // <= VS <
+    // we need to divide by all of the elements in the list when calculating the avg
     let sum = 0;
     let i = 0;
-    while (i <= arr.length) {
+    while (i < arr.length) {
         sum += arr[i];
         i++;
     }
-    return sum / (arr.length - 1);
+    return sum / (arr.length);
 }
 
 
